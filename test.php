@@ -1,7 +1,7 @@
 <?php
 
-use purchase\CmbBankClient\Application;
-use purchase\CmbBankService\BankSeparateService;
+use purchase\CmbBankSepClient\Application;
+use purchase\CmbBankSepService\BankSeparateService;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
@@ -81,12 +81,12 @@ if (3 == $process) {
     ];
     
     try {
-        $tmp = $bankService->withdrawalDeposit($info);
+        $tmp = $bankService->withdrawalDeposit($info);var_dump($tmp);
     } catch(\Exception $e) {
         var_dump($e->getMessage());die();
     }
 
-    var_dump($tmp);
+    var_dump($info);
     die();
 }
 

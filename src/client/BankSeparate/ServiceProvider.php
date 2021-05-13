@@ -1,6 +1,6 @@
 <?php
 
-namespace purchase\CmbBankClient\BankSeparate;
+namespace purchase\CmbBankSepClient\BankSeparate;
 
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;

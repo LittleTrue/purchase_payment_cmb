@@ -1,8 +1,8 @@
 <?php
 
-namespace purchase\CmbBankClient\Base;
+namespace purchase\CmbBankSepClient\Base;
 
-use purchase\CmbBankClient\Application;
+use purchase\CmbBankSepClient\Application;
 use sm3\SM3;
 
 /**

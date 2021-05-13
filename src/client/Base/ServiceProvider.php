@@ -1,6 +1,6 @@
 <?php
 
-namespace purchase\CmbBankClient\Base;
+namespace purchase\CmbBankSepClient\Base;
 
 use GuzzleHttp\Client as GuzzleHttp;
 use GuzzleHttp\RequestOptions;

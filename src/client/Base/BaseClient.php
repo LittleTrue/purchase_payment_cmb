@@ -1,10 +1,10 @@
 <?php
 
-namespace purchase\CmbBankClient\Base;
+namespace purchase\CmbBankSepClient\Base;
 
 use GuzzleHttp\RequestOptions;
-use purchase\CmbBankClient\Application;
-use purchase\CmbBankClient\Base\Exceptions\ClientError;
+use purchase\CmbBankSepClient\Application;
+use purchase\CmbBankSepClient\Base\Exceptions\ClientError;
 
 /**
  * 底层请求.

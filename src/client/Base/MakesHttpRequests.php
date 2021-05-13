@@ -1,9 +1,9 @@
 <?php
 
-namespace purchase\CmbBankClient\Base;
+namespace purchase\CmbBankSepClient\Base;
 
 use GuzzleHttp\Psr7\Response;
-use purchase\CmbBankClient\Base\Exceptions\ClientError;
+use purchase\CmbBankSepClient\Base\Exceptions\ClientError;
 
 /**
  * Trait MakesHttpRequests.

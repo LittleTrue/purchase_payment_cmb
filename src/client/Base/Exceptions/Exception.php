@@ -1,6 +1,6 @@
 <?php
 
-namespace purchase\CmbBankClient\Base\Exceptions;
+namespace purchase\CmbBankSepClient\Base\Exceptions;
 
 use Exception as BaseException;
 

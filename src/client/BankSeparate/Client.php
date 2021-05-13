@@ -1,10 +1,10 @@
 <?php
 
-namespace purchase\CmbBankClient\BankSeparate;
+namespace purchase\CmbBankSepClient\BankSeparate;
 
-use purchase\CmbBankClient\Application;
-use purchase\CmbBankClient\Base\BaseClient;
-use purchase\CmbBankClient\Base\Exceptions\ClientError;
+use purchase\CmbBankSepClient\Application;
+use purchase\CmbBankSepClient\Base\BaseClient;
+use purchase\CmbBankSepClient\Base\Exceptions\ClientError;
 
 /**
  * 银行基本数据查询请求客户端.

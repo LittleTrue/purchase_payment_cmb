@@ -1,9 +1,9 @@
 <?php
 
-namespace purchase\CmbBankClient;
+namespace purchase\CmbBankSepClient;
 
 use Pimple\Container;
-use purchase\CmbBankClient\Base\Config;
+use purchase\CmbBankSepClient\Base\Config;
 
 /**
  * Class Application.
