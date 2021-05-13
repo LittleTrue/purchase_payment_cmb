@@ -40,7 +40,7 @@ class Client extends BaseClient
         // 设置传参
         $this->setParams($infos);
 
-        return $this->httpPostJson('midsrv/jyt/withdrawalDepositSyn');
+        return $this->httpPostJson('withdrawalDepositSyn');
     }
 
     /**
@@ -53,6 +53,6 @@ class Client extends BaseClient
         // 设置传参
         $send_data = $this->setFormParams($infos);
 
-        return $this->httpGet('midsrv/jyt/withdrawalDeposit?' . $send_data);
+        return $this->httpGet('withdrawalDeposit?' . $send_data);
     }
 }

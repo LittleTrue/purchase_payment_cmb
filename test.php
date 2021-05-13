@@ -7,11 +7,11 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 //主体参数
 $config = [
-    'base_uri'      => 'https://api.cmburl.cn:8065/',
+    'base_uri'      => 'https://218.18.231.137:8065/midsrv/jyt-uat/',
     'appid'         => 'beb94776-8238-4c97-b29e-5e32584f98f9',
     'verify'        => 'SHA256Verify',
     'version'       => '0.2.0',
-    'secret'        => '123456',  // 用于apisign 
+    'secret'        => '123456', // 用于apisign 
     'secret_key'    => '123456', // 用于sign
 ];
 
@@ -81,18 +81,18 @@ if (3 == $process) {
     ];
     
     try {
-        $tmp = $bankService->withdrawalDeposit($info);var_dump($tmp);
+        $tmp = $bankService->withdrawalDeposit($info);//var_dump($tmp);
     } catch(\Exception $e) {
         var_dump($e->getMessage());die();
     }
 
-    var_dump($info);
+    // var_dump($info);
     die();
 }
 
-/** -----------------
+/** --------------------
  * 提现 --  提现结果查询 |
- *-------------------
+ *----------------------
  */
 if (4 == $process) {
     $info = [
