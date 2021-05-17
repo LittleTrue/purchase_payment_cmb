@@ -5,3 +5,4 @@ vendor/
 .DS_Store
 .php_cs
 index.php
+test.php
