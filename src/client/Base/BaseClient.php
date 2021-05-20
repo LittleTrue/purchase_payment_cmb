@@ -60,12 +60,12 @@ class BaseClient
         );
 
         $headers = [
-            'appid'     => $this->app['config']->get('appid'),
-            'timestamp' => $timestamp,
-            'sign'      => $sign,
-            'apisign'   => $api_sign,
-            'verify'    => $this->app['config']->get('verify'),
-            'version'   => $this->app['config']->get('version'),
+            'appid'         => $this->app['config']->get('appid'),
+            'timestamp'     => $timestamp,
+            'sign'          => $sign,
+            'apisign'       => $api_sign,
+            'verify'        => $this->app['config']->get('verify'),
+            'version'       => $this->app['config']->get('version'),
         ];
 
         $this->json = $json;
@@ -79,7 +79,7 @@ class BaseClient
      */
     public function setFormParams(array $params)
     {
-        $time = time();
+        $timestamp = time();
 
         $string = '';
 
@@ -88,10 +88,11 @@ class BaseClient
         //生成签名
         $sign = $this->sign($params);
 
-        $api_sign = $this->apiSign($this->app['config']->get('appid'),
+        $api_sign = $this->apiSign(
+            $this->app['config']->get('appid'),
             $this->app['config']->get('secret'),
             $sign,
-            $time
+            $timestamp
         );
 
         foreach ($params as $key => $value) {
@@ -102,7 +103,7 @@ class BaseClient
 
         $headers = [
             'appid'     => $this->app['config']->get('appid'),
-            'timestamp' => time(),
+            'timestamp' => $timestamp,
             'sign'      => $sign,
             'apisign'   => $api_sign,
             'verify'    => $this->app['config']->get('verify'),
@@ -210,7 +211,8 @@ class BaseClient
 
         $sign = hash_hmac('sha256', $string, $this->app['config']->get('secret_key'));
 
-        return $sign;
+        return '000';
+        // return $this->strToHex($sign);
     }
 
     /**
@@ -220,6 +222,28 @@ class BaseClient
     {
         $string = 'appid=' . $appid . '&secret=' . $secret . '&sign=' . $sign . '&timestamp=' . $timestamp;
 
-        return strtolower(hash("sha256", $string));
+        return hash("sha256", $string);
+    }
+
+    /**
+    * 字符串转十六进制函数
+    */
+    private function strToHex($str)
+    {
+        $hex = '';
+
+        $hex = bin2hex($str);
+
+        return $hex;
+    }
+
+    /**
+     *  十六进制转字符串函数
+     *  @pream string $hex='616263';
+     */
+    function hexToStr($hex) {
+        $str = "";
+        for ($i = 0;$i < strlen($hex) - 1;$i+= 2) $str.= chr(hexdec($hex[$i] . $hex[$i + 1]));
+        return $str;
     }
 }
