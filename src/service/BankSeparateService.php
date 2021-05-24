@@ -60,4 +60,28 @@ class BankSeparateService
 
         return $this->_BankSeparateClient->withdrawalQuery($infos);
     }
+
+    /**
+     * 平台自有电子记账簿 -- 平台信息查询接口
+     */
+    public function platformActInfo(array $infos)
+    {
+        if (empty($infos)) {
+            throw new ClientError('参数缺失', 1000001);
+        }
+
+        return $this->_BankSeparateClient->platformActInfo($infos);
+    }
+
+    /**
+     * 平台自有电子记账簿 -- 平台电子记账簿账务记录查询接口
+     */
+    public function platformSubActTradeInfo(array $infos)
+    {
+        if (empty($infos)) {
+            throw new ClientError('参数缺失', 1000001);
+        }
+
+        return $this->_BankSeparateClient->platformSubActTradeInfo($infos);
+    }
 }

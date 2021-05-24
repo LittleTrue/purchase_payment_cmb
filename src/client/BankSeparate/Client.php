@@ -25,7 +25,7 @@ class Client extends BaseClient
     {
         $this->setParams($infos);
 
-        return $this->httpPostJson('');
+        return $this->httpPostJson('lt10_nms_ovs_acq_api/st/ovsacqapi/acceptOrderDeclare');
     }
 
     // -----------------------------------------------分割-----------------------------------------------
@@ -40,7 +40,7 @@ class Client extends BaseClient
         // 设置传参
         $this->setParams($infos);
 
-        return $this->httpPostJson('withdrawalDepositSyn');
+        return $this->httpPostJson('midsrv/jyt-uat/withdrawalDepositSyn');
     }
 
     /**
@@ -53,6 +53,32 @@ class Client extends BaseClient
         // 设置传参
         $send_data = $this->setFormParams($infos);
 
-        return $this->httpGet('withdrawalDeposit?' . $send_data);
+        return $this->httpGet('midsrv/jyt-uat/withdrawalDeposit?' . $send_data);
+    }
+
+    /**
+     * 平台自有电子记账簿 -- 平台信息查询接口
+     *
+     * @throws ClientError
+     */
+    public function platformActInfo(array $infos)
+    {
+        // 设置传参
+        $send_data = $this->setFormParams($infos);
+
+        return $this->httpGet('midsrv/jyt-uat/platformActInfo?' . $send_data);
+    }
+
+    /**
+     * 平台自有电子记账簿 -- 平台电子记账簿账务记录查询接口
+     *
+     * @throws ClientError
+     */
+    public function platformSubActTradeInfo(array $infos)
+    {
+        // 设置传参
+        $send_data = $this->setFormParams($infos);
+
+        return $this->httpGet('midsrv/jyt-uat/platformSubActTradeInfo?' . $send_data);
     }
 }

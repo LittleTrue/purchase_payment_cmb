@@ -102,12 +102,12 @@ class BaseClient
         $string = substr($string, 0, -1);
 
         $headers = [
-            'appid'     => $this->app['config']->get('appid'),
-            'timestamp' => $timestamp,
-            'sign'      => $sign,
-            'apisign'   => $api_sign,
-            'verify'    => $this->app['config']->get('verify'),
-            'version'   => $this->app['config']->get('version'),
+            'appid'         => $this->app['config']->get('appid'),
+            'timestamp'     => $timestamp,
+            'sign'          => $sign,
+            'apisign'       => $api_sign,
+            'verify'        => $this->app['config']->get('verify'),
+            'version'       => $this->app['config']->get('version'),
         ];
 
         $this->headers = $headers;
@@ -211,8 +211,7 @@ class BaseClient
 
         $sign = hash_hmac('sha256', $string, $this->app['config']->get('secret_key'));
 
-        return '000';
-        // return $this->strToHex($sign);
+        return $this->strToHex($sign);
     }
 
     /**
@@ -241,9 +240,12 @@ class BaseClient
      *  十六进制转字符串函数
      *  @pream string $hex='616263';
      */
-    function hexToStr($hex) {
+    public function hexToStr($hex)
+    {
         $str = "";
-        for ($i = 0;$i < strlen($hex) - 1;$i+= 2) $str.= chr(hexdec($hex[$i] . $hex[$i + 1]));
+        for ($i = 0;$i < strlen($hex) - 1;$i+= 2) {
+            $str.= chr(hexdec($hex[$i] . $hex[$i + 1]));
+        }
         return $str;
     }
 }
